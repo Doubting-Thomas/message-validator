@@ -4,9 +4,7 @@ const input = document.querySelector(".form__input");
 const alertMessage = document.querySelector(".alert");
 const successMessage = document.querySelector(".success");
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-
+function validateMessage() {
   if (input.value === "") {
     alertMessage.classList.remove("reveal");
     successMessage.textContent = "";
@@ -17,5 +15,16 @@ form.addEventListener("submit", function (e) {
   } else {
     successMessage.textContent = "Message successfully passed in!";
     alertMessage.classList.add("reveal");
+  }
+}
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  validateMessage();
+
+  // Adding keypress event
+  if (e.key === "Enter") {
+    validateMessage();
   }
 });
