@@ -9,12 +9,13 @@ form.addEventListener("submit", function (e) {
 
   if (input.value === "") {
     alertMessage.classList.remove("reveal");
+    successMessage.textContent = "";
     // Set a timeout if there is no user input
     setTimeout(function () {
       alertMessage.classList.remove("reveal");
-    }, 5000);
+    }, 10000);
   } else {
     successMessage.textContent = "Message successfully passed in!";
-    input.textContent = "";
+    alertMessage.classList.add("reveal");
   }
 });
